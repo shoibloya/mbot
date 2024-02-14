@@ -5,6 +5,22 @@ import io
 import base64
 import json
 
+# URL of the background image
+bg_image_url = "https://media.discordapp.net/attachments/1135613925317160983/1207277752256827483/loya4271_small_grey_orchid_on_black_wall_3ece0659-5993-4792-970a-4f39e568ea39.png?ex=65df1006&is=65cc9b06&hm=feab73ed89fb9a4822999923e8a53f2034dcb839e695af44b0b9f9499b55a839&=&format=webp&quality=lossless&width=1012&height=1012"
+
+# CSS to inject contained in a string
+background_css = f"""
+<style>
+.stApp {{
+background-image: url({bg_image_url});
+background-size: cover;
+}}
+</style>
+"""
+
+# Inject CSS with Markdown
+st.markdown(background_css, unsafe_allow_html=True)
+
 # Function to load and save gallery data
 def load_gallery_data(filename='gallery_data.json'):
     try:
